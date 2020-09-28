@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 html {
   box-sizing: border-box;
 }
@@ -16,5 +21,70 @@ body {
   /*
    * CSS image reference example.
    */
-  background-image: url('./images/bg-pattern.png');
+  /* background-image: url('./images/bg-pattern.png'); */
+}
+
+ul {
+  list-style: none;
+}
+
+form {
+  margin: 0 auto 20px;
+  width: 250px;
+}
+
+.container {
+  width: 320px;
+  margin: 0 auto;
+}
+
+.articles {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.articles > li:not(:last-child) {
+  margin-bottom: 50px;
+}
+
+.articles > li {
+  width: 320px;
+}
+
+.articles > li > h2 {
+  font-size: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 740px;
+    margin: 0 auto;
+  }
+
+  .articles > li {
+    width: 350px;
+  }
+
+  .articles > li:not(:nth-last-child(2)) {
+    margin-bottom: 50px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    width: 1400px;
+    margin: 0 auto;
+  }
+
+  .articles > li > h2 {
+    font-size: 24px;
+  }
+}
+
+@media screen and (min-width: 1980px) {
+  .container {
+    width: 1600px;
+    margin: 0 auto;
+  }
 }
