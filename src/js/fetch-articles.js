@@ -1,7 +1,7 @@
 const apiKey = '39b8da748fcd4a928a1eef796d01c757';
 
 function fetchArticles(searchQuery) {
-  const url = `http://newsapi.org/v2/everything?q=${searchQuery}&language=en&apiKey=${apiKey}`;
+  const url = `https://newsapi.org/v2/everything?q=${searchQuery}&language=en&pageSize=20&apiKey=${apiKey}`;
   const options = {
     headers: { Authorization: apiKey },
   };
