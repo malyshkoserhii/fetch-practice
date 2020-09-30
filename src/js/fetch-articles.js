@@ -1,14 +1,11 @@
-const apiKey = '39b8da748fcd4a928a1eef796d01c757';
+const key = '18518367-60788b25c9bdd8e2c754a390a';
 
 function fetchArticles(searchQuery) {
-  const url = `https://newsapi.org/v2/everything?q=${searchQuery}&language=en&pageSize=20&apiKey=${apiKey}`;
-  const options = {
-    headers: { Authorization: apiKey },
-  };
+  const url = `https://pixabay.com/api/?key=${key}&q=${searchQuery}&per_page=20`;
 
-  return fetch(url, options)
+  return fetch(url)
     .then(res => res.json())
-    .then(data => data.articles);
+    .then(data => data.hits);
 }
 
 export default fetchArticles;

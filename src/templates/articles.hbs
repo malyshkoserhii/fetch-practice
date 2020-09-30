@@ -1,8 +1,13 @@
 {{#each this}}
-<li>
-    <img src="{{urlToImage}}" alt="" width="320">
-    <h2>
-        <a href="{{url}}" target="_blank" rel="noopener noreferrer">{{title}}</a>
+<li class="photo">
+    <img src="{{largeImageURL}}" alt="" class="photo_img" width="320">
+    <h2 class="photo_author"> Author:
+        <a href="{{pageURL}}" target="_blank" rel="noopener noreferrer" class="photo_author-link"><span
+                class="photo_info--description">{{user}}</span></a>
     </h2>
+    <p class="photo_info">Tags: <span class="photo_info--description">{{tags}}</span></p>
+    <p class="photo_info">Views: <span class="photo_info--description">{{views}}</span></p>
+    <p class="photo_info">Comments: <span class="photo_info--description">{{comments}}</span></p>
+    <p class="photo_info">Downloads: <span class="photo_info--description">{{downloads}}</span></p>
 </li>
 {{/each}}
