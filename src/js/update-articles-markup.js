@@ -1,8 +1,5 @@
 import articlesTpl from '../templates/articles.hbs';
-
-const refs = {
-  articlesContainer: document.querySelector('.js-articles'),
-};
+import refs from './refs';
 
 function updateArticlesMarkup(articles) {
   const markup = articlesTpl(articles);

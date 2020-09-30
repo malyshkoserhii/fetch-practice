@@ -1,20 +1,36 @@
-import './styles.css';
-import fetchArticles from './js/fetch-articles';
+import pixabayService from './js/pixabay-service';
 import updateArticlesMarkup from './js/update-articles-markup';
-
-const refs = {
-  articlesContainer: document.querySelector('.js-articles'),
-  searchForm: document.querySelector('.js-search-form'),
-};
+import refs from './js/refs';
+import './styles.css';
 
 refs.searchForm.addEventListener('submit', event => {
   event.preventDefault();
 
   const form = event.currentTarget;
-  const inputValue = form.elements.query.value;
+  pixabayService.query = form.elements.query.value;
 
-  refs.articlesContainer.innerHTML = '';
-  form.reset();
+  if (pixabayService.query !== '') {
+    refs.articlesContainer.innerHTML = '';
 
-  fetchArticles(inputValue).then(updateArticlesMarkup);
+    pixabayService.resetPage();
+    fetchPhotoes();
+    form.reset();
+  }
 });
+
+refs.loadMoreBtn.addEventListener('click', fetchPhotoes);
+
+function fetchPhotoes() {
+  refs.loadMoreBtn.classList.add('is-hidden');
+  refs.spinner.classList.remove('is-hidden');
+
+  pixabayService
+    .fetchArticles()
+    .then(articles => {
+      updateArticlesMarkup(articles);
+      refs.loadMoreBtn.classList.remove('is-hidden');
+    })
+    .finally(() => {
+      refs.spinner.classList.add('is-hidden');
+    });
+}
