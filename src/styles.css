@@ -27,9 +27,11 @@ ul {
 }
 
 form {
+  display: flex;
+  justify-content: space-between;
   padding-top: 35px;
   margin: 0 auto 20px;
-  width: 250px;
+  width: 255px;
 }
 
 img {
